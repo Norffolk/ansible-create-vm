@@ -1,0 +1,9 @@
+---
+- name: Criar VM com Ansible
+  hosts: localhost
+  tasks:
+    - name: Criar VM node2
+      community.libvirt.virt:
+        command: create
+        xml: "{{ lookup('template', 'vm_template.xml.j2') }}"
+        guest: yes
